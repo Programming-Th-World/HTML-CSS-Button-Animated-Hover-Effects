@@ -10,3 +10,89 @@ body {
   padding: 0;
   margin: 0;
 }
+
+/* Body */
+body {
+  min-height: 100vh;
+
+  display: grid;
+  place-items: center;
+
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #fff;
+  background-color: #333;
+}
+
+/* Actions */
+.actions {
+  width: 70vw;
+  padding: 3em;
+  background-color: #fff;
+  box-shadow: 0 0 3em rgba(255, 255, 255, 0.15);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+/* Button Common Styling */
+.btn {
+  appearance: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
+
+  padding: 0.5em 1.5em;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: hsl(210, 100%, 50%);
+  color: #fff;
+
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background-color: hsl(210, 100%, 20%);
+  transition: transform 300ms ease-in-out;
+}
+
+/* Button Horizontal Hover Effect */
+.btn--horizontal::after {
+  transform: scaleX(0);
+  transform-origin: right;
+}
+
+.btn--horizontal:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Button Vertical Hover Effect */
+.btn--vertical::after {
+  transform: scaleY(0);
+  transform-origin: top;
+}
+
+.btn--vertical:hover::after {
+  transform: scaleY(1);
+  transform-origin: bottom;
+}
+
+/* Button Center Hover Effect */
+.btn--center::after {
+  transform: scale(0);
+}
+
+.btn--center:hover::after {
+  transform: scale(1);
+}
